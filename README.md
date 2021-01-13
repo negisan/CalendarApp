@@ -1,24 +1,15 @@
-# README
+使用方法
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+bundle install
 
-Things you may want to cover:
+yarn install
 
-* Ruby version
+bin/rails db:migrate
+bin/rails db:seed
 
-* System dependencies
+の実行
 
-* Configuration
+テスト用初期ユーザーは
+メールアドレス:sample@email.com
+パスワード:p
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
