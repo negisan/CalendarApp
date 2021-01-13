@@ -8,7 +8,7 @@ bin/rails db:migrate
 
 bin/rails db:seed
 
-の実行
+を実行
 
 テスト用初期ユーザーは
 
