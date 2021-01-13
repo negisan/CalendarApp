@@ -1,4 +1,4 @@
-<h1>予定一覧</h1>
+<h1><%= "#{current_user.name}さんの予定一覧" %></h1>
 
 <div class='nav justify-content-end mb-3'>
   <%= link_to '新規作成', new_plan_path, class: 'btn btn-primary' %>
