@@ -1,6 +1,18 @@
 <h1><%= "#{current_user.name}さんの予定一覧" %></h1>
 
-<div class='nav justify-content-end mb-3'>
+<div class="mt-5 mb-5">
+  <%= month_calendar events: @plans do |date, plans| %>
+    <%= date.day %>
+
+    <% plans.each do |plan| %>
+      <div>
+        <%= link_to plan.label, plan_path(plan) %>
+      </div>
+    <% end %>
+  <% end %>
+</div>
+
+<div class='nav justify-content-end mb-5 mt-5'>
   <%= link_to '新規作成', new_plan_path, class: 'btn btn-primary' %>
 </div>
 
@@ -27,14 +39,6 @@
       <% end %>
     </tbody>
   </table>
+  <%= paginate @plans %>
 </div>
 
-<%= month_calendar events: @plans do |date, plans| %>
-  <%= date.day %>
-
-  <% plans.each do |plan| %>
-    <div>
-      <%= link_to plan.label, plan_path(plan) %>
-    </div>
-  <% end %>
-<% end %>

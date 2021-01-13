@@ -11,7 +11,7 @@ User.find_or_create_by!(email: 'sample@email.com') do |user|
     user.password = 'p'
 end
 
-(1..25).each do |i|
+(1..15).each do |i|
   Plan.create!(
     label: "sometihg to do #{i}",
     detail: 'foo',

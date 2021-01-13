@@ -57,3 +57,4 @@ gem 'rails-i18n'
 gem 'bootstrap'
 
 gem 'simple_calendar'
+gem 'kaminari'
