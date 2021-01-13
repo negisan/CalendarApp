@@ -1,0 +1,44 @@
+<h1><%= "#{current_user.name}さんの予定一覧" %></h1>
+
+<div class="mt-5 mb-5">
+  <%= month_calendar events: @plans do |date, plans| %>
+    <%= date.day %>
+
+    <% plans.each do |plan| %>
+      <div>
+        <%= link_to plan.label, plan_path(plan) %>
+      </div>
+    <% end %>
+  <% end %>
+</div>
+
+<div class='nav justify-content-end mb-5 mt-5'>
+  <%= link_to '新規作成', new_plan_path, class: 'btn btn-primary' %>
+</div>
+
+<div class="mb-5">
+  <table class="table mb-5">
+    <thead>
+      <tr>
+        <th><%= Plan.human_attribute_name(:label) %></th>
+        <th><%= Plan.human_attribute_name(:start_time) %></th>
+        <th colspan='3'></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @plans.each do |plan| %>
+        <tr>
+          <td><%= plan.label %></td>
+          <td><%= plan.start_time.strftime("%Y-%m-%d %H:%M") %></td>
+          <td><%= link_to '詳細', plan_path(plan), class: 'btn btn-secondary' %></td>
+          <td><%= link_to '編集', edit_plan_path(plan), class: 'btn btn-primary' %></td>
+          <td><%= link_to '削除', plan, method: :delete, class: 'btn btn-danger',
+                    data: {confirm: "#{plan.label}を削除してもよろしいですか"} %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <%= paginate @plans %>
+</div>
+

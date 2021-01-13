@@ -1,0 +1,9 @@
+ja:
+  activerecord:
+    models:
+      plan: 予定
+    attributes:
+      plan:
+        label: ラベル
+        detail: 詳細
+        start_time: 開始時刻

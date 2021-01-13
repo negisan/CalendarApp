@@ -1,0 +1,29 @@
+<h1>予定の詳細</h1>
+
+<div class='mb-3 mt-5'>
+  <table class="table">
+    <tbody>
+      <tr>
+        <th><%= Plan.human_attribute_name(:start_time) %></th>
+        <td><%= @plan.start_time %></td>
+      </tr>
+      <tr>
+        <th><%= Plan.human_attribute_name(:label) %></th>
+        <td><%= @plan.label %></td>
+      </tr>
+      <tr>
+        <th><%= Plan.human_attribute_name(:detail) %></th>
+        <td><%= @plan.detail %></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="nav justify-content-end">
+  <%= link_to '編集', edit_plan_path(@plan), class: 'btn btn-primary mr-3' %>
+  <%= link_to '削除', @plan, mehod: :delete, class: 'btn btn-danger',
+        data: {confirm: "#{@plan.label}を削除します。よろしいですか"} %>
+</div>
+<div class='nav justify-content-start'>
+  <%= link_to '戻る', :back, class: 'btn btn-primary' %>
+</div>
